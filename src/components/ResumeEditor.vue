@@ -16,7 +16,7 @@
           <div class="subitem" v-for="(subitem,index) in resume[item.field]">
             <div class="resumefield" v-for="(value,key) in subitem">
               <label>{{key}}</label>
-              <input type="text" :value="value" @input="value=$event.target.value">
+              <input type="text" :value="value" @input="value=changeResume(``,$event.target.value)">
             </div>
             <hr>
           </div>
