@@ -1,6 +1,6 @@
 <template>
   <div id="resumePreview">
-    {{resume}}
+    {{resume.skills}}
   </div>
 </template>
 <script>
