@@ -36,12 +36,11 @@
                 <input type="text" :value="value" @input="value=changeResume(`${item.field}.${index}.${key}`,$event.target.value)">
               </div>
             </div>
-
+            <hr>
             <el-button type="success" @click="add(item.field,subitem)"
                        v-if="index === resume[item.field].length-1">add</el-button>
             <el-button type="danger" @click="remove(item.field)"
                        v-if="index === resume[item.field].length-1 &&index!==0">remove</el-button>
-            <hr>
           </div>
         </div>
         <div v-else class="resumefield" v-for="(value,key) in resume[item.field]">
@@ -90,6 +89,17 @@
 </script>
 
 <style lang="scss">
+  hr{
+    margin: 10px 0;
+  }
+  input{
+    border: none;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    -webkit-appearance: none;
+  }
   .icon {
     width: 40px;
     height: 40px;
@@ -135,7 +145,8 @@
         .resumefield {
            label {
             display: block;
-             font-size:18px;
+            font-size:18px;
+             color:#777;
           }
            .isIcon{
              .icon-num{
@@ -150,8 +161,7 @@
            }
            input[type=text] {
             margin: 16px 0;
-            border: 1px solid #ddd;
-            box-shadow: inset 0 1px 3px 0 rgba(0, 0, 0, 0.25);
+            box-shadow: inset 0 0 3px 0 rgba(0, 0, 0, 0.25);
             width: 100%;
             height: 40px;
             padding: 0 8px;

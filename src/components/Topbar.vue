@@ -4,14 +4,14 @@
       <h2 class="logo">Resume</h2>
       <div class="actions">
         <div v-if="logined" class="userActions">
-          <span>你好,{{user.username}}</span>
+          <span class="welcome">你好,{{user.username}}</span>
           <el-button @click="signOut">登出</el-button>
         </div>
         <div v-else class="userActions">
           <el-button type="primary" @click="signUpDialogVisible=true">注册</el-button>
           <el-button @click="signInDialogVisible=true">登录</el-button>
         </div>
-        <el-button class="preview" @click="">预览</el-button>
+        <el-button class="preview" @click="preview">预览</el-button>
         <i>
           <svg class="icon-link">
             <use xlink:href="#icon-icongithub"></use>
@@ -19,10 +19,10 @@
         </i>
       </div>
     </div>
-    <MyDialog :visible="signUpDialogVisible" @close="signUpDialogVisible = false" title="注册">
-      <SignUpForm @success="login($event)"/>
+    <MyDialog :visible="signUpDialogVisible" @close="signUpDialogVisible = false" title="Sign Up">
+      <SignUpForm @success="logup($event)"/>
     </MyDialog>
-    <MyDialog :visible="signInDialogVisible" @close="signInDialogVisible = false" title="登录">
+    <MyDialog :visible="signInDialogVisible" @close="signInDialogVisible = false" title="Sign In">
       <SignInForm @success="login($event)"/>
     </MyDialog>
   </div>
@@ -60,6 +60,12 @@
       },
       preview(){
         this.$emit('preview')
+      },
+      logup(user){
+        this.signUpDialogVisible=false
+        this.signInDialogVisible=false
+        this.$store.commit('setUser',user)
+        this.$store.commit('newUser',user)
       }
     }
   }
@@ -75,12 +81,17 @@
       border: 1px solid;
       height: 100px;
       > .logo {
-        font-size: 25px;
+        font-size: 35px;
         margin-left: 2em;
+        color:#33cc77;
       }
       > .actions {
         margin-right: 2em;
         display: flex;
+        .welcome{
+          font-size:18px;
+          margin-right:20px;
+        }
         .preview{
           margin-left:10px;
         }
