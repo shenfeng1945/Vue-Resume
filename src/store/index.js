@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import objectPath from 'object-path'
-// import AV from '../lib/leancloud'
-// import getAVUser from "../lib/getAVUser";
+import AV from '../lib/leancloud'
+import getAVUser from "../lib/getAVUser";
 
 Vue.use(Vuex)
 export default new Vuex.Store({
