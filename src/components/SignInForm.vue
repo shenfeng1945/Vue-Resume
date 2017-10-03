@@ -18,6 +18,7 @@
 <script>
   import AV from '../lib/leancloud'
   import getAVUser from '../lib/getAVUser'
+  import getErrorMessage from '../lib/getErrorMessage'
   export default {
     name:'signInForm',
     data(){
@@ -29,7 +30,18 @@
       signIn(){
         AV.User.logIn(this.formData.username,this.formData.password).then(()=> {
           this.$emit('success',getAVUser())
-        }, function (error) {
+          this.$message({
+            message:'登录成功',
+            duration:1500,
+            type:'success'
+          })
+        },(error)=> {
+          let message = getErrorMessage(error)
+          this.$message({
+            message:`${message}`,
+            duration:1500,
+            type:'error'
+          })
         });
       }
     }
