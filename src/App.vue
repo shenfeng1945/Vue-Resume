@@ -41,7 +41,8 @@
       },
       print(){
         setTimeout(function(){window.print()},500)
-      }
+      },
+
     }
   }
 </script>
