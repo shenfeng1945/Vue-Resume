@@ -9,7 +9,7 @@
     </main>
     <div class="save-exit">
       <el-button class="exitPreview btn" @click="exit">返回</el-button>
-      <el-button type="primary" class="exitPreview btn" @click="print">保存</el-button>
+      <el-button type="primary" class="exitPreview btn" @click="print">下载</el-button>
     </div>
   </div>
 </template>

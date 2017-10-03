@@ -11,6 +11,7 @@
       <div class="actions">
         <div v-if="logined" class="userActions">
           <span class="welcome">你好, {{user.username}}</span>
+          <el-button type="primary" @click="saveData">保存</el-button>
           <el-button @click="signOut">登出</el-button>
         </div>
         <div v-else class="userActions">
@@ -65,6 +66,18 @@
         this.$store.commit('removeUser')
         localStorage.setItem('state','')
       },
+      saveData(){
+        let dataString = JSON.stringify(this.$store.state.resume)
+        let avResume = AV.Object.createWithoutData('ResumeData', this.$store.state.resume.id)
+        avResume.set('content', dataString)
+        avResume.save().then(()=>{
+          this.$message({
+            message:'保存成功',
+            duration:800,
+            type:'success'
+          })
+        })
+      },
       login(user){
         this.signUpDialogVisible=false
         this.signInDialogVisible=false
@@ -79,15 +92,12 @@
         this.signInDialogVisible=false
         this.$store.commit('setUser',user)
         this.saveOrUpdateResume()
-//        this.fetchResume()
       },
       saveOrUpdateResume(){
         if(this.$store.state.resume.id){
           this.updateResume()
-          console.log('更新')
         }else{
           this.saveResume()
-          console.log('新建')
         }
       },
       saveResume(){
@@ -103,7 +113,6 @@
       },
       updateResume() {
         //用来上传到服务器上
-        console.log(this.$store.state.resume)
         let dataString = JSON.stringify(this.$store.state.resume)
         let avResume = AV.Object.createWithoutData('ResumeData', this.$store.state.resume.id)
         avResume.set('content', dataString)
