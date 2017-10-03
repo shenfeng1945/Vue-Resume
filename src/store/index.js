@@ -15,14 +15,14 @@ export default new Vuex.Store({
     selected: 'profile',
     resume: {
       config: [
-        {field: 'profile', icon: 'wo',isAddOrRemove:false},
-        {field: 'education', icon: 'teach',isAddOrRemove:false},
-        {field: 'skills', icon: 'tools',isAddOrRemove:true},
-        {field: 'projects', icon: 'portfolio',isAddOrRemove:true},
-        {field: 'contacts', icon: '3-copy',isAddOrRemove:false},
-        {field:'links',icon:'link-symbol',isAddOrRemove:false}
+        {field: 'profile', icon: 'wo',isAddOrRemove:false,head:'个人信息'},
+        {field: 'education', icon: 'teach',isAddOrRemove:false,head:'教育经历'},
+        {field: 'skills', icon: 'tools',isAddOrRemove:true,head:'技能'},
+        {field: 'projects', icon: 'portfolio',isAddOrRemove:true,head:'项目经历'},
+        {field: 'contacts', icon: '3-copy',isAddOrRemove:false,head:'联系方式'},
+        {field:'links',icon:'link-symbol',isAddOrRemove:false,head:'更多链接'}
       ],
-      profile: {'姓名': '', '应聘职位': '','个人头像':'','个人介绍':''},
+      profile: {'姓名': '', '应聘职位': '','个人头像(链接)':'','个人介绍':''},
       education: [
         {'毕业院校': '', '专业': '','时间段':''}
       ],
@@ -32,7 +32,7 @@ export default new Vuex.Store({
       projects: [
         {'项目名称': '', '项目描述': '','项目使用技术或功能':[''],'项目源码':'','项目预览':''},
       ],
-      contacts: {city: '', email: '', QQ: '', phone: '',blog:'',github:''},
+      contacts: {city: '', email: '', QQ: '', phone: ''},
       links:{'技术博客':'','GitHub':''}
     },
   },

@@ -5,7 +5,7 @@
       <li v-for="item in resume.config"
           :class="{active:item.field===selected}"
           @click="selected =item.field">
-        <svg class="icon">
+        <svg class="icon-control">
           <use :xlink:href="'#icon-'+item.icon"></use>
         </svg>
       </li>
@@ -13,6 +13,7 @@
     <ul class="panes">
       <li v-for="item in resume.config"
           v-show="item.field===selected">
+        <h3 class="head-list">{{item.head}}</h3>
         <div v-if="resume[item.field] instanceof Array">
           <div class="subitem" v-for="(subitem,index) in resume[item.field]">
             <div class="resumefield" v-for="(value,key) in subitem">
@@ -100,7 +101,7 @@
     line-height: inherit;
     -webkit-appearance: none;
   }
-  .icon {
+  .icon-control {
     width: 40px;
     height: 40px;
     vertical-align: middle;
@@ -112,14 +113,14 @@
     vertical-align: middle;
   }
   #resumeEditor {
-    width: 360px;
+    width: 400px;
     border: 1px solid;
     margin-right: 8px;
     background: white;
     border-radius: 5px;
     display: flex;
     > .controls {
-      background: black;
+      background: #1f2d3d;
       width: 80px;
       display: flex;
       flex-direction: column;
@@ -130,7 +131,7 @@
         text-align: center;
         &.active {
           background: white;
-          > .icon {
+          > .icon-control {
             fill: black;
           }
         }
@@ -142,11 +143,15 @@
         padding: 24px;
         overflow:auto;
         height:100%;
+        .head-list{
+          margin-bottom:20px;
+          text-align:center;
+        }
         .resumefield {
            label {
             display: block;
-            font-size:18px;
-             color:#777;
+            font-size:14px;
+             color:#555;
           }
            .isIcon{
              .icon-num{

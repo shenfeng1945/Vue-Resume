@@ -1,10 +1,12 @@
 <template>
   <div id="topbar">
     <div class="topbar-wrapper">
-      <h2 class="logo">Resume</h2>
+      <h3 class="logo">
+        <svg class="logo-icon"><use xlink:href="#icon-jianliguanli"></use></svg>
+        在线简历编辑器</h3>
       <div class="actions">
         <div v-if="logined" class="userActions">
-          <span class="welcome">你好,{{user.username}}</span>
+          <span class="welcome">你好, {{user.username}}</span>
           <el-button @click="signOut">登出</el-button>
         </div>
         <div v-else class="userActions">
@@ -130,7 +132,6 @@
 
 <style lang="scss">
   #topbar {
-
     > .topbar-wrapper {
       display: flex;
       justify-content: space-between;
@@ -138,9 +139,15 @@
       border: 1px solid;
       height: 100px;
       > .logo {
-        font-size: 35px;
+        font-size: 30px;
         margin-left: 2em;
         color:#33cc77;
+        .logo-icon{
+          width:32px;
+          height:32px;
+          vertical-align:middle;
+          fill:#33cc77;
+        }
       }
       > .actions {
         margin-right: 2em;
@@ -157,6 +164,7 @@
           height: 30px;
           vertical-align: middle;
           margin-left: 1em;
+          cursor:pointer;
         }
       }
     }
