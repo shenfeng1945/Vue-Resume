@@ -18,11 +18,11 @@
           <el-button @click="signInDialogVisible=true">登录</el-button>
         </div>
         <el-button class="preview" @click="preview">预览</el-button>
-        <i>
+        <a href="https://www.github.com/shenfeng1945/Vue-Resume">
           <svg class="icon-link">
             <use xlink:href="#icon-icongithub"></use>
           </svg>
-        </i>
+        </a>
       </div>
     </div>
     <MyDialog :visible="signUpDialogVisible" @close="signUpDialogVisible = false" title="Sign Up">
@@ -54,6 +54,9 @@
       user(){
         return this.$store.state.user
       }
+    },
+    created(){
+      this.fetchResume()
     },
     methods:{
       signOut(){
