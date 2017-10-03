@@ -6,7 +6,7 @@
           <img :src="resume.profile['个人头像(链接)']" alt="头像" width="100" height="100">
         </div>
         <h2>{{resume.profile['姓名']}}</h2>
-        <p>{{resume.profile['应聘职位']}}</p>
+        <p class="p-height">{{resume.profile['应聘职位']}}</p>
       </div>
       <ul class="message">
         <li v-if="resume.contacts && resume.contacts['city']">
@@ -43,7 +43,7 @@
       </div>
       <div class="info">
         <h4 class="title">个人介绍</h4>
-        <p class="border card">{{resume.profile['个人介绍']}}</p>
+        <p class="border card p-height">{{resume.profile['个人介绍']}}</p>
       </div>
     </section>
     <section class="education" v-if="resume.education[0] && (resume.education[0]['毕业院校'] || resume.education[0]['专业'] || resume.education[0]['时间段'])">
@@ -54,8 +54,8 @@
         <h4 class="title">教育经历</h4>
         <div class="card border">
           <div v-for="(item,index) in resume.education">
-            <p>{{item['专业']}}  {{item['毕业院校']}}</p>
-            <p>{{item['时间段']}}</p>
+            <p class="p-height">{{item['专业']}}  {{item['毕业院校']}}</p>
+            <p class="p-height">{{item['时间段']}}</p>
           </div>
         </div>
       </div>
@@ -84,8 +84,8 @@
         <h4 class="title">个人项目</h4>
         <ul class="disc">
           <li v-for="item in resume.projects" class="border card">
-            <a :href="item['项目预览']">{{item['项目名称']}}</a>
-            <p class="project-con">{{item['项目描述']}}</p>
+            <a :href="item['项目预览']" class="project-head">{{item['项目名称']}}</a>
+            <p class="project-con p-height">{{item['项目描述']}}</p>
             <ul class="project-con circle">
               <li v-for="list in item['项目使用技术或功能']">{{list}}</li>
               <li>项目地址： <a :href="item['项目源码']">{{item['项目源码']}}</a></li>
@@ -96,8 +96,8 @@
       </div>
     </section>
     <ul class="links" v-if="resume.links && (resume.links['技术博客'] || resume.links['GitHub'])">
-      <p>博客: <a :href="resume.links['技术博客']">{{resume.links['技术博客']}}</a></p>
-      <p>Github: <a :href="resume.links['GitHub']">{{resume.links['GitHub']}}</a></p>
+      <p class="p-height">博客: <a :href="resume.links['技术博客']">{{resume.links['技术博客']}}</a></p>
+      <p class="p-height">Github: <a :href="resume.links['GitHub']">{{resume.links['GitHub']}}</a></p>
     </ul>
   </div>
   </div>
@@ -138,15 +138,12 @@
   h1,h2,h3,h4{font-weight: normal;}
   ul.disc{list-style: disc;padding-left:40px;}
   ul.circle{list-style: circle;padding-left:40px;}
-  a{text-decoration:none;color:#2291c3}
-  a:hover{
+  a.project-head{text-decoration:none;color:#2291c3}
+  a.project-head:hover{
     color: #23527c;
     text-decoration: underline;
   }
-  body{
-    font-size:15px;
-  }
-  p{line-height:1.8;}
+  p.p-height{line-height:1.8;}
   .icon-resume{
     width:25px;
     height:25px;
@@ -174,6 +171,12 @@
     display: flex;
     flex-direction:column;
     align-items:center;
+  }
+  .header .head >h2{
+    margin:5px 0;
+  }
+  header .head >p{
+    margin:5px 0;
   }
   .header .head > .img{
     width: 100px;
