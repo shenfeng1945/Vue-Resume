@@ -84,12 +84,12 @@
         <h4 class="title">个人项目</h4>
         <ul class="disc">
           <li v-for="item in resume.projects" class="border card">
-            <a :href="item['项目预览']" class="project-head">{{item['项目名称']}}</a>
+            <a :href="item['项目预览']" class="project-head" target="_blank">{{item['项目名称']}}</a>
             <p class="project-con p-height">{{item['项目描述']}}</p>
             <ul class="project-con circle">
               <li v-for="list in item['项目使用技术或功能']">{{list}}</li>
-              <li>项目地址： <a :href="item['项目源码']">{{item['项目源码']}}</a></li>
-              <li>预览地址： <a :href="item['项目预览']">{{item['项目预览']}}</a></li>
+              <li>项目地址： <a :href="item['项目源码']" target="_blank">{{item['项目源码']}}</a></li>
+              <li>预览地址： <a :href="item['项目预览']" target="_blank">{{item['项目预览']}}</a></li>
             </ul>
           </li>
         </ul>
