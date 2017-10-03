@@ -4,6 +4,10 @@
       <h3 class="logo">
         <svg class="logo-icon"><use xlink:href="#icon-jianliguanli"></use></svg>
         在线简历编辑器</h3>
+      <div class="test-user">
+        <div style="color:#777;">测试账号: <span style="color:#000;">a</span></div>
+        <div style="color:#777;">测试密码: <span style="color:#000;">a</span></div>
+      </div>
       <div class="actions">
         <div v-if="logined" class="userActions">
           <span class="welcome">你好, {{user.username}}</span>
